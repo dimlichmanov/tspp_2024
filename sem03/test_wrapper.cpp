@@ -47,9 +47,16 @@ public:
 int main () {
     const char* filenames[N_TESTS];
     filenames[0] = "synt";
-    /* Тесты 1-4 будут выложены 3.10 */
+    filenames[1] = "road_graph";
+    filenames[2] = "stanford";
+    filenames[3] = "youtube";
+    filenames[4] = "syn_rmat";
 
-    for (int n_test = 0; n_test < 1; n_test++) {
+    /* https://drive.google.com/file/d/183OMIj56zhqN12Aui1kxv76_Ia0vTPIF/view?usp=sharing архив с тестами, 
+        распаковать командой tar -xzf 
+    */
+
+    for (int n_test = 0; n_test < N_TESTS; n_test++) {
         CSR_graph a;
         a.read(filenames[n_test]);
         
