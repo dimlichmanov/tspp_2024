@@ -16,6 +16,8 @@ public:
         FILE *graph_file = fopen(filename, "rb");
         fread(reinterpret_cast<char*>(&row_count), sizeof(int), 1, graph_file);
         fread(reinterpret_cast<char*>(&col_count), sizeof(unsigned int), 1, graph_file);
+
+        std::cout << "Row_count = " << row_count << ", col_count = " << col_count << std::endl;
         
         row_ptr.resize(row_count + 1);
         col_ids.resize(col_count);
@@ -24,6 +26,7 @@ public:
         fread(reinterpret_cast<char*>(row_ptr.data()), sizeof(unsigned int), row_count + 1, graph_file);
         fread(reinterpret_cast<char*>(col_ids.data()), sizeof(int), col_count, graph_file);
         fread(reinterpret_cast<char*>(vals.data()), sizeof(double), col_count, graph_file);
+        fclose(graph_file);
     }
 
     void print_vertex(int idx) {
